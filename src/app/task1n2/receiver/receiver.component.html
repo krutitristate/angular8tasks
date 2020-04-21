@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-6 text-center">
+        <p>Polling : <span [ngClass]="{ 'text-success' : onlineStatus, 'text-danger'  : !onlineStatus }">{{date}}</span></p>
+    </div>
+    <div class="col-md-6 text-center">
+        <p>User is 
+            <span [ngClass]="{ 'text-success' : onlineStatus, 'text-danger'  : !onlineStatus }">{{ onlineStatus === true ? 'online' : 'offline' }}</span>
+            and 
+            <span [ngClass]="{ 'text-success' : loginStatus, 'text-danger'  : !loginStatus }">{{ loginStatus === true ? 'logged in.' : 'logged  out.'}}</span>
+        </p>
+    </div>
+</div>
+

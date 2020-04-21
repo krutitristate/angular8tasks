@@ -1,0 +1,70 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Task 6</h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-9"></div>
+            <div class="col-md-3">
+                <div class="form-inline float-sm-right">
+                    <input class="form-control mb-2 mr-sm-2" type="text" [(ngModel)]="newConv"
+                        placeholder="Enter Converstation Title">
+                    <button class="btn btn-primary mb-2" (click)="addConv()">+</button></div>
+            </div>
+        </div>
+        <hr />
+        <div *ngFor="let c of converstations; let i = index">
+            <div class="row align-middle">
+                <div *ngIf="c.edit == false" class="col-md-3 align-self-center">
+                    <p class="font-weight-bold">{{c.title}}</p>
+                </div>
+                <div *ngIf="c.edit == true" class="col-md-3 form-inline">
+                    <input class="form-control mb-2 mr-sm-2" type="text" [(ngModel)]="c.editTitle"
+                        placeholder="Enter Converstation Title">
+                    <button class="btn btn-success mb-2" (click)="saveEditConv(i)"><i class="fa fa-floppy-o"
+                            aria-hidden="true"></i></button>
+                    <button class="btn btn-danger mb-2" (click)="cancelEditConv(i)"><i class="fa fa-ban"
+                            aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="col-md-1 align-self-center">
+                    <button class="btn btn-primary mb-2" [disabled]="c.edit == true" (click)="editConv(i)"><i
+                            class="fa fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn btn-danger ml-2 mb-2" (click)="deleteConv(i)"><i class="fa fa-trash"
+                            aria-hidden="true"></i></button>
+                </div>
+                <div class="col-md-8 align-self-center">
+                    <div class="row" *ngFor="let m of c.messages; let j = index"
+                        [ngClass]="{'bg-light' : j % 2 === 0 }">
+                        <div *ngIf="m.edit == false" class="col-10 align-self-center pt-sm-3">
+                            <p>{{m.msg}}</p>
+                        </div>
+                        <div *ngIf="m.edit == true" class="col-10 form-inline pt-sm-3">
+                            <input class="form-control mb-2 mr-sm-2" type="text" [(ngModel)]="m.editMsg"
+                                placeholder="Enter Message">
+                            <button class="btn btn-success mb-2" (click)="saveEditMessage(i,j)"><i
+                                    class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                            <button class="btn btn-danger mb-2" (click)="cancelEditMessage(i,j)"><i class="fa fa-ban"
+                                    aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="col-2 align-self-right pt-sm-3">
+                            <button class="btn btn-primary mb-2" [disabled]="m.edit == true"
+                                (click)="editMessage(i,j)"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                            <button class="btn btn-danger ml-2 mb-2" (click)="deleteMessage(i,j)"><i class="fa fa-trash"
+                                    aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-inline mt-sm-3">
+                            <input class="form-control mb-2 mr-sm-2" type="text" [(ngModel)]="c.newMessage"
+                                placeholder="Enter Message">
+                            <button class="btn btn-primary mb-2" (click)="addMessage(i)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+</div>

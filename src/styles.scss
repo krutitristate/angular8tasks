@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+
+:root {
+    /* Colors */
+    --navbackgroud: #343a40;
+    --navcolor: #fff;
+    --navitem: #b4b7b9;
+    --primary-btn: #343a40;
+}
+
+.navbar {
+    background-color: var(--navbackgroud);
+}
+
+.navbar-brand {
+    color: var(--navcolor);
+}
+
+.nav-link {
+    color: var(--navitem);
+}
+
+.nav-link-active {
+    color: var(--navcolor);
+}
+
+.btn-primary {
+    background-color: var(--primary-btn) !important;
+    border-color: var(--primary-btn) !important;
+}
