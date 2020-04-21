@@ -17,6 +17,10 @@ export class SenderComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * @name toggleOnlineStatus
+   * @desc Toggle the online status and sent the emit of the current online status
+  */
   toggleOnlineStatus() {
     this.onlineStatus = !this.onlineStatus;
     this.task1n2Service.sendOnlineStatus(this.onlineStatus);
@@ -26,6 +30,10 @@ export class SenderComponent implements OnInit {
     }
   }
 
+  /**
+   * @name toggleUserLoginStatus
+   * @desc Toggle the user's login status and sent the emit of the current login status
+  */  
   toggleUserLoginStatus() {
     if(this.onlineStatus == true){
       this.loginStatus = !this.loginStatus;

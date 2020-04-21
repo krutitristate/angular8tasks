@@ -18,6 +18,7 @@ export class ReceiverComponent implements OnInit {
   date: any;
 
   constructor(private task1n2Service: Task1n2Service) {
+    // Receives emit regarding the online status
     this.onlineStatusSubscription = this.task1n2Service.getOnlineStatus().subscribe(data => {
       this.onlineStatus = data;
       if (this.onlineStatus === true) {
@@ -26,7 +27,8 @@ export class ReceiverComponent implements OnInit {
         this.stopPolling()
       }
     })
-    this.loginStatusSubscription = this.task1n2Service.isUserLoggedIn().subscribe(data => { 
+    // Receives emit regarding the login status
+    this.loginStatusSubscription = this.task1n2Service.isUserLoggedIn().subscribe(data => {
       this.loginStatus = data;
     })
   }
@@ -34,17 +36,21 @@ export class ReceiverComponent implements OnInit {
   ngOnInit() {
   }
 
-  getOnlineStatus(){
-    return { status : this.onlineStatus}
-  }
-
+  /**
+   * @name startPolling
+   * @desc startthe polling of the date every 500ms when online status in true
+  */
   startPolling() {
     this.polling = timer(0, 500)
       .subscribe(() => {
         this.date = new Date();
       })
   }
-  
+
+  /**
+   * @name stopPolling
+   * @desc stop the polling of the date every 500ms when online status in false
+  */
   stopPolling() {
     this.polling.unsubscribe()
   }

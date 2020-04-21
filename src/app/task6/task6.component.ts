@@ -59,6 +59,11 @@ export class Task6Component implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * @name addMessage
+   * @desc adds the message
+   * @param index {Number} Message index
+  */
   addMessage(index) {
     if (this.converstations[index].newMessage !== '') {
       this.converstations[index].messages.push({ 
@@ -70,26 +75,54 @@ export class Task6Component implements OnInit {
     }
   }
 
+  /**
+   * @name editMessage
+   * @desc edits the message
+   * @param cindex {Number} Conversation index
+   * @param mindex {Number} Message index
+  */
   editMessage(cindex, mindex) {
     this.converstations[cindex].messages[mindex].edit = true;
     this.converstations[cindex].messages[mindex].editMsg = this.converstations[cindex].messages[mindex].msg;
   }
 
+  /**
+   * @name saveEditMessage
+   * @desc saves the edited message
+   * @param cindex {Number} Conversation index
+   * @param mindex {Number} Message index
+  */
   saveEditMessage(cindex, mindex) {
     this.converstations[cindex].messages[mindex].edit = false;
     this.converstations[cindex].messages[mindex].msg = this.converstations[cindex].messages[mindex].editMsg;
     this.converstations[cindex].messages[mindex].editMsg = '';
   }
 
+  /**
+   * @name cancelEditMessage
+   * @desc discard the edited message
+   * @param cindex {Number} Conversation index
+   * @param mindex {Number} Message index
+  */
   cancelEditMessage(cindex, mindex) {
     this.converstations[cindex].messages[mindex].edit = false;
     this.converstations[cindex].messages[mindex].editMsg = '';
   }
 
+  /**
+   * @name deleteMessage
+   * @desc deletes the message
+   * @param cindex {Number} Conversation index
+   * @param mindex {Number} Message index
+  */
   deleteMessage(cindex, mindex) {
     this.converstations[cindex].messages.splice(mindex, 1)
   }
 
+  /**
+   * @name addConv
+   * @desc add the conversation
+  */
   addConv() {
     if (this.newConv !== '') {
       this.converstations.push({
@@ -105,22 +138,42 @@ export class Task6Component implements OnInit {
     }
   }
 
+  /**
+   * @name editConv
+   * @desc edits the converstion
+   * @param cindex {Number} Conversation index
+  */
   editConv(cindex) {
     this.converstations[cindex].edit = true;
     this.converstations[cindex].editTitle = this.converstations[cindex].title;
   }
 
+  /**
+   * @name saveEditConv
+   * @desc saves the edited the converstion
+   * @param cindex {Number} Conversation index
+  */
   saveEditConv(cindex) {
     this.converstations[cindex].edit = false;
     this.converstations[cindex].title = this.converstations[cindex].editTitle;
     this.converstations[cindex].editTitle = '';
   }
 
+  /**
+   * @name saveEditConv
+   * @desc discarded the edited the converstion
+   * @param cindex {Number} Conversation index
+  */
   cancelEditConv(cindex) {
     this.converstations[cindex].edit = false;
     this.converstations[cindex].editTitle = '';
   }
 
+  /**
+   * @name deleteConv
+   * @desc deletes the edited the converstion
+   * @param cindex {Number} Conversation index
+  */
   deleteConv(cindex) {
     this.converstations.splice(cindex, 1)
   }

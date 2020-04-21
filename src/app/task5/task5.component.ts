@@ -13,6 +13,10 @@ export class Task5Component implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * @name toggleTheme
+   * @desc toggle the theme from one to another
+  */
   toggleTheme() {
     console.log(this.task5Service.isDarkTheme())
     if (this.task5Service.isDarkTheme()) {

@@ -25,6 +25,7 @@ export class Task4Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    //Receives the emit of the change throught getMessages
     this.getMessage().subscribe(data => {
       this.display = true;
       if (data !== '') {
@@ -36,6 +37,10 @@ export class Task4Component implements OnInit {
     })
   }
 
+  /**
+   * @name onChange
+   * @desc handle the change event of the search input box
+  */
   onChange() {
     this.searchMessages(this.keyword);
   }
@@ -43,10 +48,20 @@ export class Task4Component implements OnInit {
   ngOnDestroy() {
   }
 
+  /**
+   * @name searchMessages
+   * @desc set the keyword in change detection
+   * @param keyword {String}
+  */
   searchMessages(keyword: String) {
     this.changeDetection.next(keyword);
   }
 
+  /**
+   * @name getMessage
+   * @desc return the changed keyword
+   * @param keyword {String}
+  */
   getMessage(): Observable<String> {
     return this.changeDetection.asObservable();
   }

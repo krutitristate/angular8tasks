@@ -14,6 +14,7 @@ export class Task3Component implements OnInit, OnDestroy {
   addTimer: any
 
   constructor() {
+    // Receives the emit to display the data every 2s
     this.getNumber().subscribe(data => {
       this.numbers = [];
       this.numbers = data;
@@ -24,6 +25,10 @@ export class Task3Component implements OnInit, OnDestroy {
     this.set()
   }
 
+  /**
+   * @name getNumber
+   * @desc return the number list 
+  */
   getNumber(): Observable<Number> {
     return this.myNumber.asObservable();
   }
@@ -33,6 +38,10 @@ export class Task3Component implements OnInit, OnDestroy {
     this.addTimer.unsubscribe();
   }
 
+  /**
+   * @name set
+   * @desc set the timer to the subject number to add random number every 500 ms and display the number list every 2s
+  */
   set(){
     let num = [], displayNumber = [];
     this.displayTimer = timer(0,2000)

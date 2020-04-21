@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   route: string;
 
   constructor(private router: Router) {
+    // Receives the emit of the current route of the App
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
         this.route = e.url
