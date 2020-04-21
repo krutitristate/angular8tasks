@@ -2,6 +2,7 @@
 Angular 8 Task
 
 Angular CLI: 8.3.2
+
 Node: 10.16.0
 
 Clone the repository
